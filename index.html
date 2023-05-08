@@ -16,15 +16,17 @@
     }
 </style>
 <body>
-    <h1>hello!</h1>
-    <div class="container row test col-lg-8 m-auto">
-        
+    <div class="container row test col-lg-8 m-auto text-center">
+        <h1 class="loading">
+            Loading...
+        </h1>
     </div>
 
 
     <script>
         const url = 'https://memeapi-production.up.railway.app/meme'
         const test = document.querySelector('.test')
+        const loading = document.querySelector('.loading')
         const getMeme = async() =>{
             const response = await fetch(url);
             const data = await response.json();
@@ -49,7 +51,11 @@
             })
         }
         
-        getMeme()
+        
+        setTimeout(()=>{
+            getMeme()
+            loading.innerHTML = ''
+        },2000)
     </script>
 </body>
 </html>
