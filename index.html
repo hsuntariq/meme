@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: white;
+    }
+    .test{
+        gap:1rem !important;
+    }
+</style>
+<body>
+    <h1>hello!</h1>
+    <div class="container row test col-lg-8 m-auto">
+        
+    </div>
+
+
+    <script>
+        const url = 'https://memeapi-production.up.railway.app/meme'
+        const test = document.querySelector('.test')
+        const getMeme = async() =>{
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data.meme)
+            const myItems = data.meme;
+            myItems.map((item)=>{
+                const images =  document.createElement('img')
+                const col = document.createElement('div');
+                const column = col.classList.add('col-lg-3')
+                col.classList.add('shadow')
+                col.classList.add('m-auto')
+                col.classList.add('col-6')
+                col.style.height = '200px'
+                col.classList.add('p-3')
+                test.appendChild(col)
+                images.src = item.url;
+                images.style.width = '100%'
+                images.style.height = '100%'
+                images.style.objectFit = 'cover'
+
+                col.appendChild(images)
+            })
+        }
+        
+        getMeme()
+    </script>
+</body>
+</html>
