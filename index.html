@@ -8,11 +8,67 @@
     <title>Document</title>
 </head>
 <style>
+
     body{
+        background-size: 400%;
+    }
+    .box img{
+        transition: all 0.5s;
+    }
+    .box{
+        position: relative;
+        /* border: 5px solid black !important; */
         background-color: white;
     }
+
+    .box::before{
+        content: '';
+        position: absolute;
+        background-image:linear-gradient(45deg,blue,orange,red,rebeccapurple);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-position: right;
+        background-size: 300%;
+        width: 105%;
+        height: 105%;
+        transition: all 0.3s;
+        z-index: -1;
+
+        transition: all 2s;
+        animation: moveCards 1s infinite alternate;
+
+    }
+
+
+    @keyframes moveCards {
+        0%{
+            background-position: right;
+        }100%{
+            background-position: left;
+
+        }
+    }
+    @keyframes move {
+        0%{
+            background-position: right;
+        }100%{
+            background-position: left;
+
+        }
+    }
+
+  
+  
+     
+
+   
+    .box:hover img{
+        /* transform: translateY(-20px); */
+        /* border: 1px solid black; */
+    }
     .test{
-        gap:1rem !important;
+        /* gap:1rem !important; */
     }
 </style>
 <body>
@@ -20,6 +76,7 @@
         <h1 class="loading">
             Loading...
         </h1>
+
     </div>
 
 
@@ -36,7 +93,10 @@
                 const images =  document.createElement('img')
                 const col = document.createElement('div');
                 const column = col.classList.add('col-lg-3')
-                col.classList.add('shadow')
+                col.classList.add('border')
+                col.classList.add('my-3')
+                col.classList.add('mx-4')
+                col.classList.add('box')
                 col.classList.add('m-auto')
                 col.classList.add('col-6')
                 col.style.height = '200px'
@@ -45,12 +105,12 @@
                 images.src = item.url;
                 images.style.width = '100%'
                 images.style.height = '100%'
-                images.style.objectFit = 'cover'
+                images.style.objectFit = 'contain'
 
                 col.appendChild(images)
             })
         }
-        
+        const box = 
         
         setTimeout(()=>{
             getMeme()
