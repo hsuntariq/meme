@@ -36,6 +36,7 @@ body{
     animation: moveCards 1s infinite alternate;
 
 }
+
 @keyframes moveCards {
     0%{
         background-position: right;
