@@ -10,7 +10,7 @@ const getAudio = async () => {
         title.textContent = item.name
         audioTag.setAttribute("src",`${item.url}`)
         audioTag.setAttribute("controls","controls")
-        // container.appendChild(title)
+        container.appendChild(title)
         container.appendChild(audioTag)
     })
 }
