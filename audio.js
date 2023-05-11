@@ -8,6 +8,8 @@ const getAudio = async () => {
         const audioTag = document.createElement("AUDIO")
         const columns = document.createElement("div")
         columns.classList.add("col-lg-4")
+        columns.classList.add("border")
+        columns.classList.add("p-3")
         columns.classList.add("layout")
         container.appendChild(columns)
         const title = document.createElement("p")
