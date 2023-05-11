@@ -6,12 +6,15 @@ const getAudio = async () => {
     
     allAudio.map((item) => {
         const audioTag = document.createElement("AUDIO")
+        const columns = document.createElement("div")
+        columns.classList.add("col-lg-4")
+        container.appendChild(columns)
         const title = document.createElement("p")
         title.textContent = item.name
         audioTag.setAttribute("src",`${item.url}`)
         audioTag.setAttribute("controls","controls")
-        container.appendChild(title)
-        container.appendChild(audioTag)
+        columns.appendChild(title)
+        columns.appendChild(audioTag)
     })
 }
 getAudio()
