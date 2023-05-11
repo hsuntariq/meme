@@ -5,117 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<style>
-
-    body{
-        background-size: 400%;
-    }
-    .box img{
-        transition: all 0.5s;
-    }
-    .box{
-        position: relative;
-        /* border: 5px solid black !important; */
-        background-color: white;
-    }
-
-    .box::before{
-        content: '';
-        position: absolute;
-        background-image:linear-gradient(45deg,blue,orange,red,rebeccapurple);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        background-position: right;
-        background-size: 300%;
-        width: 105%;
-        height: 105%;
-        transition: all 0.3s;
-        z-index: -1;
-
-        transition: all 2s;
-        animation: moveCards 1s infinite alternate;
-
-    }
-
-
-    @keyframes moveCards {
-        0%{
-            background-position: right;
-        }100%{
-            background-position: left;
-
-        }
-    }
-    @keyframes move {
-        0%{
-            background-position: right;
-        }100%{
-            background-position: left;
-
-        }
-    }
-
-  
-  
-     
-
-   
-    .box:hover img{
-        /* transform: translateY(-20px); */
-        /* border: 1px solid black; */
-    }
-    .test{
-        /* gap:1rem !important; */
-    }
-</style>
 <body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#">Meme</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link text-light" aria-current="page" href="audio.html">Audio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="video.html">Video</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <div class="container row test col-lg-8 m-auto text-center" style="gap:1rem">
         <h1 class="loading">
             Loading...
         </h1>
-
     </div>
-
-
-    <script>
-        const url = 'https://memeapi-production.up.railway.app/meme'
-        const test = document.querySelector('.test')
-        const loading = document.querySelector('.loading')
-        const getMeme = async() =>{
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data.meme)
-            const myItems = data.meme;
-            myItems.map((item)=>{
-                const images =  document.createElement('img')
-                const col = document.createElement('div');
-                const column = col.classList.add('col-lg-3')
-                col.classList.add('border')
-                col.classList.add('my-3')
-                col.classList.add('m-auto')
-                col.classList.add('box')
-                col.classList.add('m-auto')
-                col.classList.add('col-6')
-                col.style.height = '200px'
-                col.classList.add('p-3')
-                test.appendChild(col)
-                images.src = item.url;
-                images.style.width = '100%'
-                images.style.height = '100%'
-                images.style.objectFit = 'contain'
-
-                col.appendChild(images)
-            })
-        }
-        const box = 
-        
-        setTimeout(()=>{
-            getMeme()
-            loading.innerHTML = ''
-        },2000)
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
