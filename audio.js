@@ -6,8 +6,9 @@ const getAudio = async () => {
     
     allAudio.map((item) => {
         const audioTag = document.createElement("AUDIO")
-        // const title = document.createElement("p")
-        // title.textContent = item.name
+        const title = document.createElement("p")
+        title.textContent = item.name
+        title.classList.addClass('text-secondary')
         audioTag.setAttribute("src",`${item.url}`)
         audioTag.setAttribute("controls","controls")
         // container.appendChild(title)
