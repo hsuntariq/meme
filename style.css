@@ -1,6 +1,9 @@
-body{
+/* *{
+    border: 1px solid red;
+} */
+/* body{
     background-size: 400%;
-}
+} */
 .audio--container{
     margin-top: 2rem;
     display: grid;
@@ -36,7 +39,12 @@ body{
     animation: moveCards 1s infinite alternate;
 
 }
-
+.card{
+    box-shadow: 8px 10px 5px #efecec;
+}
+.text-decoration-none{
+    text-decoration: none;
+}
 @keyframes moveCards {
     0%{
         background-position: right;

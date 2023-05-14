@@ -10,6 +10,7 @@ const getAudio = async () => {
         // title.textContent = item.name
         audioTag.setAttribute("src",`${item.url}`)
         audioTag.setAttribute("controls","controls")
+        audioTag.setAttribute("preload","auto")
         // container.appendChild(title)
         container.appendChild(audioTag)
     })
